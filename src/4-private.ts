@@ -9,7 +9,7 @@ export class MyDate {
     this.day = day;
   }
 
-  printFormat(): string {
+  private printFormat(): string {
     const day = this.addPadding(this.day);
     const month = this.addPadding(this.month);
     return `${day}/${month}/${this.year}`;
@@ -40,5 +40,5 @@ export class MyDate {
 }
 
 const myDate = new MyDate(1993, 7, 10);
-console.log(myDate.printFormat());
+// console.log(myDate.printFormat()); no se puede usar y exponer porque es private
 console.log(myDate.getDay());
