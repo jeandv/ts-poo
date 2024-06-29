@@ -9,13 +9,13 @@ export class MyDate {
     this.day = day;
   }
 
-  private printFormat(): string {
+  printFormat(): string {
     const day = this.addPadding(this.day);
     const month = this.addPadding(this.month);
     return `${day}/${month}/${this.year}`;
   }
 
-  private addPadding(value: number) {
+  private addPadding(value: number) { //si se coloca private se puede usar solo internamente
     if (value < 10) {
       return `0${value}`;
     }
@@ -40,5 +40,5 @@ export class MyDate {
 }
 
 const myDate = new MyDate(1993, 7, 10);
-// console.log(myDate.printFormat()); no se puede usar y exponer porque es private
-console.log(myDate.getDay());
+console.log(myDate.printFormat()); // no se puede usar y exponer si es private el addPadding para eso esta la funcion de solo impprimir
+console.log(myDate.getDay()); // aqui no es necesario llamar la funcion completa, solo es para retornar el dia de lo que ya da la funcion interna.
